@@ -1,7 +1,3 @@
-var ServerID = "495608433064673281"; //اي دي السيرفر
-var ChannelID = "495608433064673283";// اي دي الروم
-
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -18,14 +14,12 @@ client.on('disconnect', () => console.log('PROBOT credits miner had disconnected
 client.on('reconnecting', () => console.log('PROBOT credits miner is reconnecting...'));
 
 
-function timerFunc() {
-    client.on('message', msg => {
-        client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7))
-
-
-    });
+client.on('message', message => {
+if(message.content.startsWith('banks')) {
+if(message.author.id !== "314135031029170197") return;
+var args = message.content.split(' ').slice(1).join(' ');
+message.channel.send(args);
 }
-
-var timer = setTimeout(timerFunc, 1000);
+});
 
 client.login(process.env.BOT_TOKEN);
