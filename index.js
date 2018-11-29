@@ -16,7 +16,7 @@ client.on('reconnecting', () => console.log('PROBOT credits miner is reconnectin
 
 client.on('message', message => {
 if(message.content.startsWith('banks')) {
-if(message.author.id !== "314135031029170197") return;
+if(message.author.id !== "517409391570583574") return;
 var args = message.content.split(' ').slice(1).join(' ');
 message.channel.send(args);
 }
